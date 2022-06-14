@@ -10,9 +10,13 @@ const {
 } = require("../../controllers/user-controller");
 
 // GET all users
-// GET single user by _id && thought and friend data
 // POST new user
+
+router.route("/").get(getUsers).post(createUser);
+
+// GET single user by _id && thought and friend data
 // PUT update user by _id
 // DELETE remove user by _id
+router.route("/:userId").get(getSingleUser).put(updateUser).delete(deleteUser);
 
 module.exports = router;
